@@ -14,11 +14,11 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 GET     /signup                    controllers.SignupController.default
 
-POST    /signup                    controllers.SignupController.store
+POST    /signup                    controllers.SignupController.store(firstname:String,middlename:String,lastname:String,username:String,password:String,repassword:String,mobile:Long,gender:String,age:Int,hobbies:String)
 
 GET     /signin                    controllers.SigninController.default
 
-POST    /signin                    controllers.SigninController.check
+POST    /signin                    controllers.SigninController.check(uname:String,psw:String)
 
 GET     /profile                   controllers.ProfileController.default
 

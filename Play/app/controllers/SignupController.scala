@@ -47,32 +47,28 @@ class SignupController @Inject() extends Controller {
     Console.println(Service.list)
   Ok(views.html.signup(""))
   }
-  def store = Action {implicit request =>
+  def store(firstname:String,middlename:String,lastname:String,username:String,password:String,repassword:String,mobile:Long,gender:String,age:Int,hobbies:String) = Action {implicit request =>
 
     //val mobile=userForm.bindFromRequest.get
 
     //mobile.age.toS
-    userForm.bindFromRequest.fold(
-      formWithErrors => {
-
-        Ok(views.html.signup("Please check you input !!"))
-      },
-        value => {
-          if(value.mobile.toString.length==10 && value.password.equals(value.repassword))
+          if(mobile.toString.length==10 && password.equals(repassword))
             {
               def iterate(ls:List[UserDetails]):UserDetails= {
                 ls match {
-                  case head :: tail if (value.username.equals(head.username)) => head
-                  case head :: Nil if (value.username.equals(head.username)) => head
+                  case head :: tail if (username.equals(head.username)) => head
+                  case head :: Nil if (username.equals(head.username)) => head
                   case head :: tail=>iterate(tail)
                   case Nil=>null
                 }
               }
               val result=iterate(Service.list.toList)
+              val user=UserDetails(firstname,middlename,lastname,username,password,repassword,mobile,gender,age,hobbies)
               if(result==null) {
-                Service.list.append(value)
+                Service.list.append(user)
+                println("yo")
                 Console.println(Service.list)
-                Redirect(routes.ProfileController.default).withSession("username" -> value.username).flashing("success"->"Successfull logged in. Your details are...")
+                Redirect(routes.ProfileController.default).withSession("username" -> username).flashing("success"->"Successfull logged in. Your details are...")
               }
               else
                 {
@@ -84,6 +80,4 @@ class SignupController @Inject() extends Controller {
               Ok(views.html.signup("Please check you input !!"))
             }
         }
-    )
-  }
 }

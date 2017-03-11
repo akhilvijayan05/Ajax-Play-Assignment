@@ -1,11 +1,8 @@
 @(error:String)
-
+<script src="@routes.Assets.versioned("javascripts/app.js")" type="text/javascript"></script>
 <h1>Login Page</h1>
-<br>
-<form action="@routes.SigninController.check" method="post" style="border:double;"><br>
-User Name : <input type="text" name="username" placeholder="Username"><br><br>
-Password :  <input type="password" name="password" placeholder="Password"><br><br>
+<br><br>
+User Name : <input type="text" id="username" name="username" placeholder="Username"><br><br>
+Password :  <input type="password" id="password" name="password" placeholder="Password"><br><br>
 <div style="color:red;">@error</div>
-<button>Submit</button>
-
-</form>
+<button id="signinbtn">Submit</button>

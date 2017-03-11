@@ -1,31 +1,22 @@
 @(error:String)
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+    <script src="@routes.Assets.versioned("javascripts/app.js")" type="text/javascript"></script>
+
 <h1>Sign Up Page</h1>
-<form action="@routes.SignupController.store" method="post" style="border:double;"><br>
-First Name : <input type="text" name="firstname" placeholder="First Name">*Should not be Empty<br><br>
-Middle Name : <input type="text" name="middlename" placeholder="Middle Name"><br>
+First Name : <input type="text" id="firstname" name="firstname" placeholder="First Name">*Should not be Empty<br><br>
+Middle Name : <input type="text" id="middlename" name="middlename" placeholder="Middle Name"><br>
     <br>
-    Last Name : <input type="text" name="lastname" placeholder="Last Name">*Should not be Empty<br><br>
-    User Name : <input type="text" name="username" placeholder="Username"><br><br>
-    Password : <input type="password" name="password" placeholder="Password"><br><br>
-    Re-Password : <input type="password" name="repassword" placeholder="Re-Password">*Password should match<br><br>
-    Mobile Number : <input type="text" name="mobile" placeholder="Mobile">*10 digit mobile number<br><br>
-    Gender : <input type="radio" name="gender" value="Male">Male <input type="radio" name="gender" value="Female">Female<br><br>
-        Age : <input type="text" name="age" placeholder="Age">*Age limit 18 to 75<br><br>
-        Hobbies : <select name="hobbies">
+    Last Name : <input type="text" id="lastname" name="lastname" placeholder="Last Name">*Should not be Empty<br><br>
+    User Name : <input type="text" id="username"name="username" placeholder="Username"><br><br>
+    Password : <input type="password" id="password" name="password" placeholder="Password"><br><br>
+    Re-Password : <input type="password" id="repassword" name="repassword" placeholder="Re-Password">*Password should match<br><br>
+    Mobile Number : <input type="text" id="mobile" name="mobile" placeholder="Mobile">*10 digit mobile number<br><br>
+    Gender : <input type="radio" id="gender" name="gender" value="Male">Male <input type="radio" name="gender" value="Female">Female<br><br>
+        Age : <input type="text" id="age" name="age" placeholder="Age">*Age limit 18 to 75<br><br>
+        Hobbies : <select id="hobbies" name="hobbies">
             <option value="Playing Cricket">Playing Cricket</option>
             <option value="Listening Music">Listening Music</option>
             <option value="Watching Movies">Watching Movies</option>
         </select><br><br>
     <div style="color:red;  ">@error</div>
-    <button>Submit</button>
-</form>
-
-</body>
-</html>
+    <button id="signupbtn">Submit</button>

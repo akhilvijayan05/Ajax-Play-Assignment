@@ -16,7 +16,10 @@ class JavascriptRoute extends Controller {
         routes.javascript.FrontController.front,
         routes.javascript.FrontController.signin,
         routes.javascript.FrontController.signup,
-        routes.javascript.DetailController.detail
+        routes.javascript.DetailController.detail,
+        routes.javascript.SigninController.check,
+        routes.javascript.SignupController.store
+
       )
     ).as("text/javascript")
   }
